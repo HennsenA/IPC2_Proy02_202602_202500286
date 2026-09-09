@@ -3,11 +3,164 @@
     public class ArbolAvl
     {
         public NodoAvl Raiz { get; set;  }
+        public int Altura;
 
         public ArbolAvl()
         {
             Raiz = null;
         }
 
+        public NodoAvl InsertarNodo(NodoAvl nodo, Libro NuevoLibro)
+        {
+            if (nodo == null)
+            {
+                nodo = new NodoAvl(NuevoLibro);
+
+                return nodo;
+            }
+            else
+            {
+                if (Buscar(nodo, NuevoLibro) == true)
+                {
+                    return nodo;
+                }
+
+                if (NuevoLibro.Isbn > nodo.Dato.Isbn)
+                {
+                    nodo.Derecho = InsertarNodo(nodo.Derecho, NuevoLibro);
+                    Altura = CalcAltura(nodo);
+                    nodo = Balanceo(nodo);
+                }
+                else
+                {
+                    nodo.Izquierdo = InsertarNodo(nodo.Izquierdo, NuevoLibro);
+                    Altura = CalcAltura(nodo);
+                    nodo = Balanceo(nodo);
+                }
+
+                return nodo;
+            }
+        }
+
+        public NodoAvl Elminar(NodoAvl nodo, Libro libro)
+        {
+            return null;//Terminar de implementar
+        }
+
+        public bool Buscar(NodoAvl nodo, Libro libro)
+        {
+            if (nodo == null)
+            {
+                return false;
+            }
+
+            if (nodo.Dato.Equals(libro))
+            {
+                return true;
+            }
+
+            if (libro.Isbn > nodo.Dato.Isbn)
+            {
+                return Buscar(nodo.Derecho, libro);
+            }
+            else
+            {
+                return Buscar(nodo.Izquierdo, libro);
+            }
+        }
+
+        public string InOrder(NodoAvl nodo)
+        {
+            String lista = "";
+            if (nodo != null)
+            {
+                lista += InOrder(nodo.Izquierdo);
+                lista += nodo.Dato.Isbn.ToString() + " ";
+                lista += InOrder(nodo.Derecho);
+            }
+            return lista;
+        }
+
+        public int FactorBalance(NodoAvl nodo)
+        {
+            return CalcAltura(nodo.Izquierdo) - CalcAltura(nodo.Derecho);
+        }
+
+        public int CalcAltura(NodoAvl nodo)
+        {
+            int alturaD = 0, alturaI = 0;
+
+            if (nodo == null)
+            {
+                return 0;
+            }
+            if (nodo.Derecho != null)
+            {
+                alturaD = CalcAltura(nodo.Derecho) + 1;
+            }
+            if (nodo.Izquierdo != null)
+            {
+                alturaI = CalcAltura(nodo.Izquierdo) + 1;
+            }
+
+            if (alturaD > alturaI)
+            {
+                return alturaD;
+            }
+            else
+            {
+                return alturaI;
+            }
+        }
+
+        public NodoAvl Balanceo(NodoAvl nodo)
+        {
+            int fb = FactorBalance(nodo);
+
+            if (fb >= -1 && fb <= 1)
+            {
+                return nodo;
+            }
+
+            //Primer caso LR
+            if (fb > 1 && FactorBalance(nodo.Izquierdo) < 0)
+            {
+                nodo.Izquierdo = RotarIzquierda(nodo.Izquierdo);
+                return RotarDerecha(nodo);
+            }
+            else if (fb > 1 && FactorBalance(nodo.Izquierdo) >= 0)//Segundo caso LL
+            {
+                return RotarDerecha(nodo);
+            }
+
+            //Tercer caso RL
+            if (fb < -1 && FactorBalance(nodo.Derecho) > 0)
+            {
+                nodo.Derecho = RotarDerecha(nodo.Derecho);
+                return RotarIzquierda(nodo);
+            }
+            else if (fb < -1 && FactorBalance(nodo.Derecho) <= 0)
+            {
+                return RotarIzquierda(nodo);
+            }
+
+            return nodo;
+        }
+        public NodoAvl RotarDerecha(NodoAvl nodo)
+        {
+            NodoAvl nuevaRaiz = nodo.Izquierdo;
+            nodo.Izquierdo = nuevaRaiz.Derecho;
+            nuevaRaiz.Derecho = nodo;
+
+            return nuevaRaiz;
+        }
+        public NodoAvl RotarIzquierda(NodoAvl nodo)
+        {
+            NodoAvl nuevaRaiz = nodo.Derecho;
+            nodo.Derecho = nuevaRaiz.Izquierdo;
+            nuevaRaiz.Izquierdo = nodo;
+
+            return nuevaRaiz;
+        }
     }
 }

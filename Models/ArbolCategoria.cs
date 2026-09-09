@@ -9,5 +9,17 @@
             Raiz = null;
         }
 
+        //Implementar metodos
+        public void InsertarCat(NodoCategoria nodo)
+        {
+
+        }
+        public bool BuscarCat(NodoCategoria nodo)
+        {
+            return false;
+        }
+        public void EliminarCat(NodoCategoria nodo)
+        {
+        }
     }
 }
