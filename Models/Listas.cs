@@ -11,21 +11,59 @@
 
         public void Insertar(NodoLista nuevo)
         {
+            if (Inicio == null)
+            {
+                Inicio = nuevo;
+            }
+            else
+            {
+                var actual = Inicio;
 
+                while (actual.Siguiente != null)
+                {
+                    if (actual.Siguiente.Equals(nuevo))//Reemplazo en caso de repetirse el objeto ciudad
+                    {
+                        actual.Siguiente = nuevo;
+                        return;
+                    }
+                    actual = actual.Siguiente;
+                }
+                actual.Siguiente = nuevo;//Insercion de nuevo elemento
+            }
         }
 
         public void Eliminar(NodoLista nodo)
         {
+            var actual = Inicio;
 
+            while (actual.Siguiente != null)
+            {
+                if(actual.Siguiente.Equals(nodo))
+                {
+                    //Cambio de puntero para eliminar el nodo de la lista
+                    actual.Siguiente = actual.Siguiente.Siguiente;
+                    return;
+                }
+                actual = actual.Siguiente;
+            }
+
+            Console.WriteLine("No se encontro el nodo a eliminar");
         }
 
-        public void Actualizar(NodoLista nodo, NodoLista nuevo)
+        public NodoLista Buscar(NodoLista nodo)
         {
-        }
+            var actual = Inicio;
 
-        public void Buscar(NodoLista nodo)
-        {
+            while(actual != null)
+            {
+                if (actual.Equals(nodo))
+                {
+                    return actual;
+                }
+                actual = actual.Siguiente;
+            }
 
+            return actual;
         }
     }
 }
