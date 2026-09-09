@@ -2,5 +2,12 @@
 {
     public class ArbolAvl
     {
+        public NodoAvl Raiz { get; set;  }
+
+        public ArbolAvl()
+        {
+            Raiz = null;
+        }
+
     }
 }

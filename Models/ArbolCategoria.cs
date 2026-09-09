@@ -2,5 +2,12 @@
 {
     public class ArbolCategoria
     {
+        public Categorias Raiz { get; set; }
+        
+        public ArbolCategoria()
+        {
+            Raiz = null;
+        }
+
     }
 }
