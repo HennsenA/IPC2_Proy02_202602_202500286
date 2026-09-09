@@ -20,7 +20,12 @@ namespace IPC2_Proyecto2_S22026_202500286.Models
         //Impresion de cada Libro con sus datos
         public void ImprimirDato()
         {
-            
+            string datos = $"""
+                ISBN: {Isbn}
+                Titulo: {Titulo}
+                Autor: {Autor}
+                Categoria: {Categoria}
+                """;
         }
     }
 }

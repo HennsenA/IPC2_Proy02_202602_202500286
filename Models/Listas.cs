@@ -65,5 +65,15 @@
 
             return actual;
         }
+
+        public void ImprimirLista()
+        {
+            var actual = Inicio;
+            while (actual != null)
+            {
+                actual.Valor.ImprimirDato();
+                actual = actual.Siguiente;
+            }
+        }
     }
 }

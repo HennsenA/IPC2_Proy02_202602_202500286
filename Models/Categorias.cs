@@ -15,7 +15,7 @@
         //Impresion de la lista de los libros guardados en la categoria
         public void ImprimirDato()
         {
-
+            ListaLibros.ImprimirLista();
         }
     }
 }
