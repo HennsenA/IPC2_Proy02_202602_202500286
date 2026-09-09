@@ -1,0 +1,122 @@
+# =====================================================
+# .gitignore para proyecto ASP.NET Core MVC (IPC2)
+# =====================================================
+
+# ----- Carpetas de compilación de .NET -----
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# ----- Archivos de Visual Studio -----
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# ----- Archivos de compilación específicos -----
+*.dll
+*.exe
+*.pdb
+*.user
+*.cache
+*.ilk
+*.lib
+*.sbr
+
+# ----- Paquetes NuGet -----
+packages/
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ----- Archivos del sistema -----
+.DS_Store
+.AppleDouble
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ----- Archivos generados por Graphviz -----
+wwwroot/graphviz/*.svg
+wwwroot/graphviz/*.png
+wwwroot/graphviz/*.jpg
+wwwroot/graphviz/*.gif
+wwwroot/graphviz/*.dot
+
+# ----- Logs y archivos temporales -----
+*.log
+*.tmp
+*.temp
+logs/
+temp/
+
+# ----- Configuración sensible (opcional) -----
+appsettings.Development.json
+appsettings.*.json
+!appsettings.json
+
+# ----- Node.js (si usas frontend) -----
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ----- Archivos de usuario de Rider/VS Code -----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ----- Archivos de Entity Framework (si lo usas) -----
+*.mdf
+*.ldf
+*.ndf
+
+# ----- Archivos de publicación -----
+*.publishsettings
+*.pubxml
+
+# ----- Archivos de pruebas -----
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# ----- Archivos de coverage -----
+*.coveragexml
+coverage*.xml
+coverage*.html
+
+# ----- Archivos temporales de MSBuild -----
+*.cachefile
+*.cache
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.sln
+
+# ----- Archivos específicos de tu proyecto -----
+# Si tienes carpetas temporales específicas
+temp_data/
+output/
+downloads/
