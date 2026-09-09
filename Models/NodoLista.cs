@@ -2,5 +2,13 @@
 {
     public class NodoLista
     {
+        public TipoNodo Valor {  get; set; }
+        public NodoLista Siguiente { get; set; }
+
+        public NodoLista(TipoNodo valor)
+        {
+            Valor = valor;
+            Siguiente = null;
+        }
     }
 }
