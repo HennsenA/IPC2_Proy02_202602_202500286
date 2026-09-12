@@ -21,5 +21,34 @@
         {
             return Izquierdo == null && Derecho == null;
         }
+
+        public int Grado()
+        {
+            if (Derecho != null && Izquierdo == null)
+            {
+                return 1;
+            }
+            else if (Derecho == null && Izquierdo != null)
+            {
+                return -1;
+            }
+            else if (Derecho == null && Izquierdo == null)
+            {
+                return 2;
+            }
+            return 0;
+        }
+
+        public NodoAvl NodoMenor()
+        {
+            if (Derecho.Dato.Isbn > Izquierdo.Dato.Isbn)
+            {
+                return Derecho;
+            }
+            else
+            {
+                return Izquierdo;
+            }
+        }
     }
 }

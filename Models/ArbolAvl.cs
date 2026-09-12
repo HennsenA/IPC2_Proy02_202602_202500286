@@ -42,9 +42,49 @@
             }
         }
 
-        public NodoAvl Elminar(NodoAvl nodo, Libro libro)
+        public NodoAvl Eliminar(NodoAvl nodo, Libro libro)
         {
-            return null;//Terminar de implementar
+            if (nodo == null)//Arbol vacio o nodo inexistente
+            {
+                return null;
+            }
+
+            if (libro.Isbn > nodo.Dato.Isbn)
+            {
+                nodo.Derecho = Eliminar(nodo.Derecho, libro);
+                return Balanceo(nodo.Derecho);
+            }
+            else if (libro.Isbn < nodo.Dato.Isbn)
+            {
+                nodo.Izquierdo = Eliminar(nodo.Izquierdo, libro);
+                return Balanceo(nodo.Izquierdo);
+            }
+            else
+            {
+                //El nodo es una hoja
+                if (nodo.EsHoja() == true)
+                {
+                    nodo = null;
+                    return nodo;
+                }
+
+                //El nodo tiene un hijo
+                if (nodo.Grado() == 1)
+                {
+                    return nodo.Derecho;
+                }
+                if (nodo.Grado() == -1)
+                {
+                    return nodo.Izquierdo;
+                }
+
+                //El nodo tiene dos hijos
+                if (nodo.Grado() == 2)
+                {
+                    return nodo.Derecho.NodoMenor(); //se toma al menor del arbol derecho 
+                }
+            }
+            return nodo;
         }
 
         public bool Buscar(NodoAvl nodo, Libro libro)
