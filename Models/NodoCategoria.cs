@@ -5,14 +5,14 @@
         public Categorias Datos {  get; set; }
         public NodoCategoria HermanoDer {  get; set; }
         public NodoCategoria SubCatIzq {  get; set; }
-        public NodoCategoria Padre {  get; set; }
+        public Listas ListaLibros { get; set; }
 
         public NodoCategoria(Categorias datos)
         {
             Datos = datos;
             HermanoDer = null;
             SubCatIzq = null;
-            Padre = null;
+            ListaLibros = new Listas();
         }
 
         public bool EsHoja()

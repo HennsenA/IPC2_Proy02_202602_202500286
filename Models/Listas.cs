@@ -21,7 +21,7 @@
 
                 while (actual.Siguiente != null)
                 {
-                    if (actual.Siguiente.Equals(nuevo))//Reemplazo en caso de repetirse el objeto ciudad
+                    if (actual.Siguiente.Equals(nuevo))
                     {
                         actual.Siguiente = nuevo;
                         return;
