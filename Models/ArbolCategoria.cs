@@ -25,6 +25,7 @@
         {
             if (ExisteCat(nodo.Datos.Nombre) == true)
             {
+                Console.WriteLine("La categoria ya existe");
                 return false;//Categoria ya existe
             }
 
@@ -43,6 +44,7 @@
                 Insercion(padre, nodo);
             }
             CantidadNodos++;
+            Console.WriteLine("Cantidad de nodos: "+CantidadNodos);
             return true;
         }
         private void Insercion(NodoCategoria padre, NodoCategoria hijo)

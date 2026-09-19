@@ -1,4 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+/*var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -23,4 +23,23 @@ app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
 
-app.Run();
+app.Run();*/
+
+
+using IPC2_Proyecto2_S22026_202500286.Models;
+
+namespace IPC2_Proyecto2_S22026_202500286
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            ArbolCategoria arbol = new ArbolCategoria();
+            arbol.InsertarCat(new NodoCategoria(new Categorias("Historia", "Era Medieval")));
+            arbol.InsertarCat(new NodoCategoria(new Categorias("Arte", "Renacimiento")));
+            arbol.InsertarCat(new NodoCategoria(new Categorias("Biologia", "Zoologia")));
+
+            Console.WriteLine("Numero de nodos: "+ arbol.NoNodos());
+        }
+    }
+}
