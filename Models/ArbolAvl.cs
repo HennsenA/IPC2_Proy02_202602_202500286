@@ -3,7 +3,6 @@
     public class ArbolAvl
     {
         public NodoAvl Raiz { get; set;  }
-        public int Altura;
 
         public ArbolAvl()
         {
@@ -20,7 +19,7 @@
             }
             else
             {
-                if (Buscar(nodo, NuevoLibro) == true)
+                if (nodo.Dato.Isbn == NuevoLibro.Isbn)
                 {
                     return nodo;
                 }
@@ -28,17 +27,15 @@
                 if (NuevoLibro.Isbn > nodo.Dato.Isbn)
                 {
                     nodo.Derecho = InsertarNodo(nodo.Derecho, NuevoLibro);
-                    Altura = CalcAltura(nodo);
-                    nodo = Balanceo(nodo);
                 }
                 else
                 {
                     nodo.Izquierdo = InsertarNodo(nodo.Izquierdo, NuevoLibro);
-                    Altura = CalcAltura(nodo);
-                    nodo = Balanceo(nodo);
                 }
 
-                return nodo;
+                nodo.Altura = 1 + nodo.Grado();
+
+                return Balanceo(nodo);
             }
         }
 
@@ -87,25 +84,25 @@
             return nodo;
         }
 
-        public bool Buscar(NodoAvl nodo, Libro libro)
+        public bool Buscar(NodoAvl nodo, int isbn)
         {
             if (nodo == null)
             {
                 return false;
             }
 
-            if (nodo.Dato.Equals(libro))
+            if (nodo.Dato.Isbn == isbn)
             {
                 return true;
             }
 
-            if (libro.Isbn > nodo.Dato.Isbn)
+            if (isbn > nodo.Dato.Isbn)
             {
-                return Buscar(nodo.Derecho, libro);
+                return Buscar(nodo.Derecho, isbn);
             }
             else
             {
-                return Buscar(nodo.Izquierdo, libro);
+                return Buscar(nodo.Izquierdo, isbn);
             }
         }
 

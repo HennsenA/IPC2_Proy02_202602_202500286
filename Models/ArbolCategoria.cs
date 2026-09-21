@@ -30,7 +30,7 @@
             }
 
             //Primer caso: La categoria es una raiz
-            if (nodo.Datos.Padre.Equals(null)) {
+            if (nodo.Datos.Padre.Equals("")) {
                 Insercion(Raiz, nodo);
             }
             else //Nodo hijo (subcategoria)
@@ -44,7 +44,6 @@
                 Insercion(padre, nodo);
             }
             CantidadNodos++;
-            Console.WriteLine("Cantidad de nodos: "+CantidadNodos);
             return true;
         }
         private void Insercion(NodoCategoria padre, NodoCategoria hijo)

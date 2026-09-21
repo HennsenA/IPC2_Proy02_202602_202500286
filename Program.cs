@@ -34,12 +34,7 @@ namespace IPC2_Proyecto2_S22026_202500286
     {
         public static void Main(string[] args)
         {
-            ArbolCategoria arbol = new ArbolCategoria();
-            arbol.InsertarCat(new NodoCategoria(new Categorias("Historia", "Era Medieval")));
-            arbol.InsertarCat(new NodoCategoria(new Categorias("Arte", "Renacimiento")));
-            arbol.InsertarCat(new NodoCategoria(new Categorias("Biologia", "Zoologia")));
 
-            Console.WriteLine("Numero de nodos: "+ arbol.NoNodos());
         }
     }
 }
