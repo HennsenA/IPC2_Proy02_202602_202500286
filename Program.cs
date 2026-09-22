@@ -1,4 +1,4 @@
-/*var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -23,10 +23,10 @@ app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
 
-app.Run();*/
+app.Run();
 
 
-using IPC2_Proyecto2_S22026_202500286.Models;
+/*using IPC2_Proyecto2_S22026_202500286.Models;
 
 namespace IPC2_Proyecto2_S22026_202500286
 {
@@ -37,4 +37,4 @@ namespace IPC2_Proyecto2_S22026_202500286
 
         }
     }
-}
+}*/
