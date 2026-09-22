@@ -1,0 +1,21 @@
+﻿@page
+@model IPC2_Proyecto2_S22026_202500286.Pages.EliminarLibroModel
+@{
+    ViewData["Title"] = "Eliminar Libro";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>Selecciona un libro en la lista para eliminarlo</p>
+
+<form>
+    <div class="mb-3">
+        <label for="BookSelector" class="form-label">Selecciona un Libro</label>
+        <select class="form-select" aria-label="BookSelector">
+            <option selected>Selecciona una Categoria</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+</form>

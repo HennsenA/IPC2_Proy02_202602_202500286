@@ -1,0 +1,26 @@
+﻿@page
+@model IPC2_Proyecto2_S22026_202500286.Pages.RegistroCategoriaModel
+@{
+    ViewData["Title"] = "Registro de Categoria";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h4>Ingrese los datos que se solicitan</h4>
+
+<form>
+    <div class="mb-3">
+        <label for="Categorie" class="form-label">Nombre de Categoria</label>
+        <input type="text" class="form-control" id="Categorie">
+    </div>
+    <div class="mb-3">
+        <label for="FatherCat" class="form-label">Categoria Padre</label>
+        <select class="form-select" aria-label="CategorieSelector">
+            <option selected>Selecciona una Categoria</option>
+            <option value="1">Sin padre</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>

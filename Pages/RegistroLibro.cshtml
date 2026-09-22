@@ -1,0 +1,30 @@
+﻿@page
+@model IPC2_Proyecto2_S22026_202500286.Pages.RegistroLibroModel
+@{
+    ViewData["Title"] = "Registro de Nuevo Libro";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h4>Ingrese los datos que se solicitan</h4>
+
+<form>
+  <div class="mb-3">
+    <label for="BookName" class="form-label">Titulo del Libro</label>
+    <input type="text" class="form-control" id="BookName">
+  </div>
+  <div class="mb-3">
+    <label for="Autor" class="form-label">Autor</label>
+    <input type="text" class="form-control" id="Autor">
+  </div>
+  <div class="mb-3">
+      <label for="Categoria" class="form-label">Categoria</label>
+    <select class="form-select" aria-label="CategorieSelector">
+    <option selected>Selecciona una Categoria</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
