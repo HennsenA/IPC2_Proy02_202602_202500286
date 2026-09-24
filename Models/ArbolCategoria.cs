@@ -30,7 +30,7 @@
             }
 
             //Primer caso: La categoria es una raiz
-            if (nodo.Datos.Padre.Equals("")) {
+            if (nodo.Datos.Padre==null) {
                 Insercion(Raiz, nodo);
             }
             else //Nodo hijo (subcategoria)

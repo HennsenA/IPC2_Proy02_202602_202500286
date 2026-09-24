@@ -5,24 +5,24 @@ namespace IPC2_Proyecto2_S22026_202500286.Controller
 {
     public class ManejoXml
     {
-        private string Ruta;
+        private Stream XmlStream;
         private XDocument XmlFile;
-        public ManejoXml(string ruta)
+        public ManejoXml(Stream xmlstream)
         {
-            Ruta = ruta;
+            XmlStream = xmlstream;
         }
 
         public bool CargaArchivo()
         {
             try
             {
-                if (Ruta.Length==0)
+                if (XmlStream.Length==0)
                 {
                     //ruta vacia
                     return false;
                 }
 
-                XmlFile = XDocument.Load(Ruta);
+                XmlFile = XDocument.Load(XmlStream);
                 return true;
             }
             catch (FileNotFoundException)
@@ -41,7 +41,7 @@ namespace IPC2_Proyecto2_S22026_202500286.Controller
             ArbolCategoria arbol = new ArbolCategoria();
             try
             {
-                var ListaCategorias = XmlFile.Root!.Element("listaCategoria")!.Elements("categoria");
+                var ListaCategorias = XmlFile.Root!.Element("listaCategorias")!.Elements("categoria");
 
                 if (ListaCategorias == null)
                 {
@@ -51,7 +51,7 @@ namespace IPC2_Proyecto2_S22026_202500286.Controller
                 foreach (XElement categoria in ListaCategorias)
                 {
                     string nombre = categoria.Value.Trim();
-                    string padre = categoria.Attribute("padre")!.Value;
+                    string? padre = categoria.Attribute("padre")?.Value;
 
                     Categorias nueva = new Categorias(padre,nombre);
 
@@ -71,7 +71,7 @@ namespace IPC2_Proyecto2_S22026_202500286.Controller
 
             try
             {
-                var ListaLibros = XmlFile.Root!.Element("listaLibros")!.Elements("libro");
+                var ListaLibros = XmlFile.Root!.Element("listaLibros")?.Elements("libro");
 
                 if (ListaLibros == null)
                 {

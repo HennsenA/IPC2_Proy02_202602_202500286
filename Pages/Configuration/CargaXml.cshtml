@@ -1,0 +1,30 @@
+﻿@page
+@model IPC2_Proyecto2_S22026_202500286.Pages.Configuration.CargaXmlModel
+@{
+    ViewData["Title"] = "Subir Archivo de Configuracion";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="container mt-4">
+    <h2>Cargar Archivo de Configuración XML</h2>
+
+    <!-- Mostrar errores de validación del ModelState en caso de fallar -->
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    @if (!string.IsNullOrEmpty(Model.Mensaje))
+    {
+        <div class="alert alert-success">@Model.Mensaje</div>
+    }
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+            <!-- Corregido: asp-for genera automáticamente el id y el label correcto -->
+            <label asp-for="XmlFile" class="form-label">Selecciona un archivo XML:</label>
+            <input type="file" asp-for="XmlFile" accept=".xml" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Cargar</button>
+    </form>
+</div>
