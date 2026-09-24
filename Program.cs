@@ -1,14 +1,13 @@
-/*using IPC2_Proyecto2_S22026_202500286.Controller;
-using IPC2_Proyecto2_S22026_202500286.Models;*/
+using IPC2_Proyecto2_S22026_202500286.Controller;
+using IPC2_Proyecto2_S22026_202500286.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-/*builder.Services.AddSingleton<ArbolAvl>();
+builder.Services.AddSingleton<ArbolAvl>();
 builder.Services.AddSingleton<ArbolCategoria>();
-builder.Services.AddSingleton<ManejoXml>();*/
 
 var app = builder.Build();
 

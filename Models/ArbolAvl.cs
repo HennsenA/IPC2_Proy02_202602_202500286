@@ -1,4 +1,6 @@
-﻿namespace IPC2_Proyecto2_S22026_202500286.Models
+﻿using System.Numerics;
+
+namespace IPC2_Proyecto2_S22026_202500286.Models
 {
     public class ArbolAvl
     {
@@ -103,6 +105,27 @@
             else
             {
                 return Buscar(nodo.Izquierdo, isbn);
+            }
+        }
+
+        public NodoAvl BuscarNodo(NodoAvl nodo, int isbn){
+            if (nodo == null)
+            {
+                return null;
+            }
+
+            if (nodo.Dato.Isbn == isbn)
+            {
+                return nodo;
+            }
+
+            if(isbn < nodo.Dato.Isbn)
+            {
+                return BuscarNodo(nodo.Izquierdo, isbn);
+            }
+            else
+            {
+                return BuscarNodo(nodo.Derecho, isbn);
             }
         }
 

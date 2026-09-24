@@ -9,15 +9,41 @@
 <div class="row">
     <div class="col-md-6">
         <h3>Seccion de Busqueda</h3>
-        <form>
+        <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="BookCode" class="form-label">ISBN</label>
-                <input placeholder="Ingrese el isbn del libro que desea buscar" type="text" class="form-control" id="BookCode">
+                <input placeholder="Ingrese el isbn del libro que desea buscar" type="text" class="form-control" asp-for="BookCode">
             </div>
             <button type="submit" class="btn btn-primary">Buscar</button>
         </form>
     </div>
     <div class="col-md-6" id="SearchResult">
         <h3>Resultado de la Busqueda</h3>
+        @if (Model.mensaje != null)
+        {
+            <div class="alert alert-success">
+                @Model.mensaje;
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    @Model.resultado;
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                No se encontro el libro
+            </div>
+        }
+
+        @if (Model.resultado == null)
+        {
+            <div class="alert alert-warning">
+                Advertencia: No se ha cargado el archivo de configuración
+            </div>
+        }
     </div>
 </div>
+

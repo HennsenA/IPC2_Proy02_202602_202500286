@@ -12,8 +12,14 @@ namespace IPC2_Proyecto2_S22026_202500286.Pages.Configuration
         [BindProperty]
         public IFormFile XmlFile { get; set; }
         public string Mensaje { get; set; }
-        private ArbolAvl ArbolLibros;
-        private ArbolCategoria ArbolCategorias;
+        private  ArbolAvl _ArbolLibros;
+        private  ArbolCategoria _ArbolCategorias;
+
+        public CargaXmlModel(ArbolCategoria _arbolcategoria, ArbolAvl _arbolavl)
+        {
+            _ArbolLibros=_arbolavl;
+            _ArbolCategorias=_arbolcategoria;
+        }
 
         public void OnGet()
         {
@@ -45,15 +51,15 @@ namespace IPC2_Proyecto2_S22026_202500286.Pages.Configuration
                     return Page();
                 }
 
-                ArbolCategorias = parser.CargarCategorias();
-                ArbolLibros = parser.CargarLibros();
+                _ArbolCategorias = parser.CargarCategorias();
+                _ArbolLibros = parser.CargarLibros();
 
-                if (ArbolCategorias == null)
+                if (_ArbolCategorias == null)
                 {
                     ModelState.AddModelError(string.Empty, "Advertencia: Arbol categoria es nulo");
                 }
 
-                if (ArbolLibros == null)
+                if (_ArbolLibros == null)
                 {
                     ModelState.AddModelError(string.Empty, "Advertencia: Arbol libros es nulo");
                 }
