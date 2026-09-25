@@ -1,6 +1,34 @@
 @page
-@model IPC2_Proyecto2_S22026_202500286.Pages.BuscarLibroModel
+@model IPC2_Proyecto2_S22026_202500286.Pages.LibroMayorMenorModel
 @{
-    ViewData["Title"]= "Libro Mayor";
+    ViewData["Title"] = "Vista de Libros";
     Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (Model.estado == 1)
+    {
+        <div class="alert alert-warning">
+            @Model.mensaje
+        </div>
+    }
+    else
+    {
+        <h4>@Model.titulo</h4>
+    }
+}
+
+@{
+    if(Model.Nodo != null)
+    {
+        <div class="card">
+            <div class="card-body">
+                <b>Isbn</b>: @Model.Nodo.Dato.Isbn<br />
+                <b>Título</b>: @Model.Nodo.Dato.Titulo<br />
+                <b>Autor</b>: @Model.Nodo.Dato.Autor<br />
+                <b>Categoria</b>: @Model.Nodo.Dato.Categoria
+            </div>
+        </div>
+    }
 }
