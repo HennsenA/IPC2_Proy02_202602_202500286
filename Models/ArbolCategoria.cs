@@ -2,7 +2,7 @@
 {
     public class ArbolCategoria
     {
-        private NodoCategoria Raiz { get; set; }
+        public NodoCategoria Raiz { get; set; }
         private int CantidadNodos { get; set; }
 
         public ArbolCategoria()
@@ -55,7 +55,7 @@
             }
 
             //Verificacion con primera subcategoria
-            if(String.Compare(hijo.Datos.Nombre, padre.SubCatIzq.Datos.Nombre) > 0)
+            if(String.Compare(hijo.Datos.Nombre, padre.SubCatIzq.Datos.Nombre) < 0)
             {
                 NodoCategoria aux = padre.SubCatIzq;
                 padre.SubCatIzq = hijo;
@@ -69,13 +69,13 @@
             while (actual.HermanoDer!=null && insertado==false)
             {
                 int comparacion = string.Compare(hijo.Datos.Nombre, actual.HermanoDer.Datos.Nombre);
-                if (comparacion > 0)
+                if (comparacion < 0)
                 {
                     NodoCategoria aux = actual.HermanoDer;
                     actual.HermanoDer = hijo;
                     hijo.HermanoDer = aux;
                     insertado = true;
-                } else if (comparacion < 0)
+                } else if (comparacion > 0)
                 {
                     actual = actual.HermanoDer;
                 }
@@ -136,6 +136,21 @@
 
             ListaPadres = nombres.Split(",");
             return ListaPadres;
+        }
+
+        public string PreOrder(NodoCategoria nodo)
+        {
+            if (nodo == null)
+            {
+                return "";
+            }
+
+            string resultado = nodo.Datos.Nombre + ",";
+
+            resultado += PreOrder(nodo.SubCatIzq);
+            resultado += PreOrder(nodo.HermanoDer);
+
+            return resultado;
         }
     }
 }

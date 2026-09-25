@@ -108,7 +108,7 @@ namespace IPC2_Proyecto2_S22026_202500286.Models
             }
         }
 
-        public NodoAvl BuscarNodo(NodoAvl nodo, int isbn){
+        public NodoAvl BuscarNodo(NodoAvl nodo, int? isbn){
             if (nodo == null)
             {
                 return null;

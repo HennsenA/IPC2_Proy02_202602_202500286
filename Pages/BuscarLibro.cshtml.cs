@@ -8,7 +8,7 @@ namespace IPC2_Proyecto2_S22026_202500286.Pages
     public class BuscarLibroModel : PageModel
     {
         [BindProperty]
-        public int BookCode{get; set;}
+        public int? BookCode{get; set;}
         public string mensaje{get; set;}
         public int estado{get; set;}
         public NodoAvl? resultado{get; set;}
