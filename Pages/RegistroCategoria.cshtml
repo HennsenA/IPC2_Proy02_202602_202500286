@@ -1,4 +1,6 @@
 ﻿@page
+@using Microsoft.VisualBasic
+@using IPC2_Proyecto2_S22026_202500286.Models
 @model IPC2_Proyecto2_S22026_202500286.Pages.RegistroCategoriaModel
 @{
     ViewData["Title"] = "Registro de Categoria";
@@ -7,20 +9,47 @@
 
 <h1>@ViewData["Title"]</h1>
 <h4>Ingrese los datos que se solicitan</h4>
-
-<form>
+@if (Model.estado == 1)
+{
+    <div class="alert alert-warning">
+        @Model.mensaje
+    </div>
+}else if (Model.estado == -1)
+{
+    <div class="alert alert-danger">
+        @Model.mensaje
+    </div>
+}else if (Model.estado == 0)
+{
+    <div class="alert alert-success">
+        @Model.mensaje
+    </div>
+}
+<form method="post" enctype="multipart/form-data">
     <div class="mb-3">
-        <label for="Categorie" class="form-label">Nombre de Categoria</label>
-        <input type="text" class="form-control" id="Categorie">
+        <label for="nombre" class="form-label">Nombre de Categoria</label>
+        <input type="text" class="form-control" asp-for="nombre">
     </div>
     <div class="mb-3">
-        <label for="FatherCat" class="form-label">Categoria Padre</label>
-        <select class="form-select" aria-label="CategorieSelector">
+        <label for="padre" class="form-label">Categoria Padre</label>
+        <select class="form-select" aria-label="CategorieSelector" asp-for="padre">
             <option selected>Selecciona una Categoria</option>
-            <option value="1">Sin padre</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            @{
+                    if (Model.ListaPadres != null)
+                    {
+                        int NoValor=0;
+                        string nombre;
+                        for(int i=0; i<Model.ListaPadres.Length; i++)
+                        {   
+                            nombre=Model.ListaPadres[i];
+                            NoValor=i+1;
+                            <option value=@nombre>@nombre</option>
+                        }
+                    }
+                
+            }
         </select>
     </div>
+    
     <button type="submit" class="btn btn-primary">Registrar</button>
 </form>

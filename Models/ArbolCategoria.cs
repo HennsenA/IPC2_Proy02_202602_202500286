@@ -121,8 +121,21 @@
 
             return null;
         }
-        public void EliminarCat(NodoCategoria nodo)
+
+        public string[] ListaPadres()
         {
+            string nombres="";
+            string[] ListaPadres; 
+
+            var actual = Raiz.SubCatIzq;
+            while (actual != null)
+            {
+                nombres = nombres + actual.Datos.Nombre + ",";
+                actual=actual.HermanoDer;
+            }
+
+            ListaPadres = nombres.Split(",");
+            return ListaPadres;
         }
     }
 }
