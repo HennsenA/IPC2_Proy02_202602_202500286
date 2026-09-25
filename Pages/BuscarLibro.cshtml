@@ -19,29 +19,30 @@
     </div>
     <div class="col-md-6" id="SearchResult">
         <h3>Resultado de la Busqueda</h3>
-        @if (Model.mensaje != null)
+        @if (Model.estado==0)//Código de operación exitosa
         {
             <div class="alert alert-success">
-                @Model.mensaje;
+                @Model.mensaje
             </div>
 
             <div class="card">
                 <div class="card-body">
-                    @Model.resultado;
+                    <b>Isbn</b>: @Model.resultado.Dato.Isbn<br />
+                    <b>Título</b>: @Model.resultado.Dato.Titulo<br />
+                    <b>Autor</b>: @Model.resultado.Dato.Autor<br />
+                    <b>Categoria</b>: @Model.resultado.Dato.Categoria
                 </div>
             </div>
-        }
-        else
-        {
-            <div class="alert alert-danger">
-                No se encontro el libro
-            </div>
-        }
-
-        @if (Model.resultado == null)
+        }else if (Model.estado == 1)//Codigo de advertencia
         {
             <div class="alert alert-warning">
-                Advertencia: No se ha cargado el archivo de configuración
+                @Model.mensaje
+            </div>
+        }
+        else if(Model.estado == -1)//Error producido
+        {
+            <div class="alert alert-danger">
+                @Model.mensaje
             </div>
         }
     </div>

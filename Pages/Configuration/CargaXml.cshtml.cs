@@ -12,13 +12,13 @@ namespace IPC2_Proyecto2_S22026_202500286.Pages.Configuration
         [BindProperty]
         public IFormFile XmlFile { get; set; }
         public string Mensaje { get; set; }
-        private  ArbolAvl _ArbolLibros;
-        private  ArbolCategoria _ArbolCategorias;
+        private readonly ArbolAvlService _ArbolLibros;
+        private readonly ArbolCatService _ArbolCategoria;
 
-        public CargaXmlModel(ArbolCategoria _arbolcategoria, ArbolAvl _arbolavl)
+        public CargaXmlModel(ArbolAvlService _arbolLibros, ArbolCatService _arbolCategoria)
         {
-            _ArbolLibros=_arbolavl;
-            _ArbolCategorias=_arbolcategoria;
+            _ArbolLibros = _arbolLibros;
+            _ArbolCategoria = _arbolCategoria;
         }
 
         public void OnGet()
@@ -51,15 +51,16 @@ namespace IPC2_Proyecto2_S22026_202500286.Pages.Configuration
                     return Page();
                 }
 
-                _ArbolCategorias = parser.CargarCategorias();
-                _ArbolLibros = parser.CargarLibros();
+                _ArbolCategoria._ArbolCategorias = parser.CargarCategorias();
+                _ArbolLibros._ArbolLibros = parser.CargarLibros();
+                Console.WriteLine("Lista de Libros: "+_ArbolLibros._ArbolLibros.InOrder(_ArbolLibros._ArbolLibros.Raiz));
 
-                if (_ArbolCategorias == null)
+                if (_ArbolCategoria._ArbolCategorias == null)
                 {
                     ModelState.AddModelError(string.Empty, "Advertencia: Arbol categoria es nulo");
                 }
 
-                if (_ArbolLibros == null)
+                if (_ArbolLibros._ArbolLibros == null)
                 {
                     ModelState.AddModelError(string.Empty, "Advertencia: Arbol libros es nulo");
                 }

@@ -2,6 +2,6 @@
 {
     public interface TipoNodo
     {
-        void ImprimirDato();
+        string ImprimirDato();
     }
 }

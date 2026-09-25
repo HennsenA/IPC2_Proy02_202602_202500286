@@ -13,9 +13,10 @@
         }
 
         //Impresion de la lista de los libros guardados en la categoria
-        public void ImprimirDato()
+        public string ImprimirDato()
         {
             ListaLibros.ImprimirLista();
+            return "";
         }
     }
 }

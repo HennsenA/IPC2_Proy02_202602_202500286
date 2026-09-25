@@ -87,7 +87,7 @@ namespace IPC2_Proyecto2_S22026_202500286.Controller
 
                     Libro nuevo = new Libro(isbn, titulo, autor, categoria);
 
-                    arbol.InsertarNodo(arbol.Raiz, nuevo);
+                    arbol.Raiz = arbol.InsertarNodo(arbol.Raiz, nuevo);
                 }
 
                 return arbol;
