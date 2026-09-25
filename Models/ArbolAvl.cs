@@ -141,6 +141,24 @@ namespace IPC2_Proyecto2_S22026_202500286.Models
             return lista;
         }
 
+        public NodoAvl MenorLibro()
+        {
+            var actual=Raiz;
+            while (actual.Izquierdo != null)
+            {
+                actual=actual.Izquierdo;
+            }
+            return actual;
+        }
+        public NodoAvl MayorLibro()
+        {
+            var actual=Raiz;
+            while (actual.Derecho != null)
+            {
+                actual=actual.Derecho;
+            }
+            return actual;
+        }
         public int FactorBalance(NodoAvl nodo)
         {
             return CalcAltura(nodo.Izquierdo) - CalcAltura(nodo.Derecho);
