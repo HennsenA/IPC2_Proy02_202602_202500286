@@ -122,22 +122,6 @@
             return null;
         }
 
-        public string[] ListaPadres()
-        {
-            string nombres="";
-            string[] ListaPadres; 
-
-            var actual = Raiz.SubCatIzq;
-            while (actual != null)
-            {
-                nombres = nombres + actual.Datos.Nombre + ",";
-                actual=actual.HermanoDer;
-            }
-
-            ListaPadres = nombres.Split(",");
-            return ListaPadres;
-        }
-
         public string PreOrder(NodoCategoria nodo)
         {
             if (nodo == null)

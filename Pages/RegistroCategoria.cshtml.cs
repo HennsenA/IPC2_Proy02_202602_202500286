@@ -21,7 +21,7 @@ namespace IPC2_Proyecto2_S22026_202500286.Pages
             CatService=catService;
             if (CatService._ArbolCategorias != null)
             {
-                ListaPadres = CatService._ArbolCategorias.ListaPadres();
+                ListaPadres = CatService._ArbolCategorias.PreOrder(CatService._ArbolCategorias.Raiz.SubCatIzq).Split(",");
             }
             else
             {
