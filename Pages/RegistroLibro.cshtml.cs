@@ -59,8 +59,14 @@ namespace IPC2_Proyecto2_S22026_202500286.Pages
                 mensaje = "Por favor ingrese el ISBN del libro";
                 return Page();
             }
+            if (AvlService._ArbolLibros.Buscar(AvlService._ArbolLibros.Raiz, isbn))
+            {
+                estado = -1;
+                mensaje = "No se puede ingresar el libro (el ISBN ya existe)";
+                return Page();
+            }
 
-            if(nombre==null || nombre == "")
+            if (nombre==null || nombre == "")
             {
                 estado = 1;
                 mensaje = "Por favor ingrese el nombre del libro";
