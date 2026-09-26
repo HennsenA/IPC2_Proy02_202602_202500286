@@ -152,5 +152,20 @@
 
             return resultado;
         }
+
+        public void PreOrderJerarquia(NodoCategoria nodo, int nivel, Listas lista)
+        {
+            if (nodo == null)
+            {
+                return;
+            }
+
+            NodoJerarquico nodoJ = new NodoJerarquico(nodo.Datos,nivel);
+            NodoLista nodoL = new NodoLista(nodoJ);
+            lista.Insertar(nodoL);
+
+            PreOrderJerarquia(nodo.SubCatIzq, nivel + 1, lista);
+            PreOrderJerarquia(nodo.HermanoDer, nivel, lista);
+        }
     }
 }

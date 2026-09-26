@@ -2,8 +2,10 @@
 
 namespace IPC2_Proyecto2_S22026_202500286.Models
 {
-    public class Libro : TipoNodo
+    public class Libro : ITipoNodo
     {
+        public string Nombre { get; set; }//atributo no usado
+        public int Nivel { get; set; }//atributo no usado
         public int? Isbn { get; set; }
         public string Titulo { get; set; }
         public string Autor { get; set; }

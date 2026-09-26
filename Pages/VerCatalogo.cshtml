@@ -1,0 +1,45 @@
+﻿@page
+@model IPC2_Proyecto2_S22026_202500286.Pages.VerCatalogoModel
+@{
+    ViewData["Title"]="Catalogo";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+<div class="container mt-4">
+    <h2>Organización del Catálogo</h2>
+
+    <div class="card">
+        <div class="card-body">
+            @if (Model.ListaJerarquica != null && Model.ListaJerarquica.Inicio!=null)
+            {
+                <ul class="list-unstyled">
+                    @{
+                        // Obtener el primer nodo de tu lista enlazada
+                        var nodoActual = Model.ListaJerarquica.Inicio;
+
+                        while (nodoActual != null)
+                        {
+                            var cat = nodoActual.Valor;
+
+                            // Calculamos el margen izquierdo (ej. 20px por cada nivel)
+                            int margen = cat.Nivel * 30;
+
+                            <li style="margin-left: @(margen)px; margin-bottom: 5px;">
+                                <strong>@cat.Nombre</strong>
+                            </li>
+
+                            nodoActual = nodoActual.Siguiente;
+                        }
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">No hay categorías registradas. Carga un archivo XML primero.</p>
+            }
+        </div>
+    </div>
+</div>

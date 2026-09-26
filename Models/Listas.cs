@@ -21,11 +21,6 @@
 
                 while (actual.Siguiente != null)
                 {
-                    if (actual.Siguiente.Equals(nuevo))
-                    {
-                        actual.Siguiente = nuevo;
-                        return;
-                    }
                     actual = actual.Siguiente;
                 }
                 actual.Siguiente = nuevo;//Insercion de nuevo elemento
