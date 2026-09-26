@@ -6,4 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\imgs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Ensayo.pdf" />
+    <None Include="wwwroot\fotoprofesional.jpg" />
+  </ItemGroup>
+
 </Project>
